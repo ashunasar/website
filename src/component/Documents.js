@@ -28,23 +28,23 @@ export default function Documents({ data, loader }) {
   if (numPages === null) {
   } else {
     console.log(numPages);
-    loader;
+    loader();
   }
   return (
     <>
-      <div className="document mt-4">
-        <div className="card mt-0 round-bottom-0">
-          <div className="card_icon bg-bannner">
-            <img className="img-fluid pdf" src={pdfImage} alt="" />
+      <div className='document mt-4'>
+        <div className='card mt-0 round-bottom-0'>
+          <div className='card_icon bg-bannner'>
+            <img className='img-fluid pdf' src={pdfImage} alt='' />
           </div>
           <p>{data.Title}</p>
-          <a className="download-btn" href={data.URL} download={data.URL}>
-            <img className="img-fluid" src={downloadImage} alt="" />
+          <a className='download-btn' href={data.URL} download={data.URL}>
+            <img className='img-fluid' src={downloadImage} alt='' />
           </a>
         </div>
-        <div className="pdf">
+        <div className='pdf'>
           <button
-            id="prev-page"
+            id='prev-page'
             onClick={() => {
               setPageNumber((value) => {
                 if (value === 1) {
@@ -57,7 +57,7 @@ export default function Documents({ data, loader }) {
             ❮
           </button>
           <button
-            id="next-page"
+            id='next-page'
             onClick={() => {
               setPageNumber((value) => {
                 if (value === numPages) {
