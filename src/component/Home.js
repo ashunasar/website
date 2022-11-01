@@ -11,7 +11,7 @@ import { useParams } from "react-router-dom";
 
 export default function Home() {
   const { userId } = useParams();
-  const [loader, setLoader] = useState(true);
+  // const [loader, setLoader] = useState(true);
   const [data, setData] = useState();
   useEffect(() => {
     fetch(
@@ -22,7 +22,7 @@ export default function Home() {
       .then((data) => {
         setData(data);
       });
-  }, []);
+  }, [userId]);
 
   let modeData;
   if (data === undefined) {
@@ -41,26 +41,26 @@ export default function Home() {
         <Loader />
       ) : (
         <>
-          <section className="hero">
-            <img className="img-fluid" src={bgImage} alt="" />
-            <div className="container">
-              <div className="hero-top">
-                <div className="logo-banner text-center">
-                  <img className="img-fluid" src={user} alt="" />
+          <section className='hero'>
+            <img className='img-fluid' src={bgImage} alt='' />
+            <div className='container'>
+              <div className='hero-top'>
+                <div className='logo-banner text-center'>
+                  <img className='img-fluid' src={user} alt='' />
                 </div>
               </div>
-              <div className="hero-bottom mt-5">
+              <div className='hero-bottom mt-5'>
                 <h1>{data.PersonalInfo.Name}</h1>
                 <h2>{data.PersonalInfo.Location}</h2>
                 <h3>{data.PersonalInfo.Country}</h3>
-                <div className="hero-detail banner-shadow">
+                <div className='hero-detail banner-shadow'>
                   <p>{data.PersonalInfo.Bio}</p>
                 </div>
               </div>
             </div>
           </section>
-          <section className="card-section">
-            <div className="container">
+          <section className='card-section'>
+            <div className='container'>
               {modeData.StandardLinks.Links ? (
                 <Card data={JSON.parse(modeData.StandardLinks.Links)} />
               ) : (
@@ -76,7 +76,7 @@ export default function Home() {
                   data={modeData.Document}
                   loader={() => {
                     console.log("lonc");
-                    setLoader(true);
+                    // setLoader(true);
                   }}
                 />
               ) : (
@@ -87,9 +87,9 @@ export default function Home() {
               ) : (
                 ""
               )}
-              <footer className="footer text-center">
-                <div className="contaier">
-                  <img className="img-fluid" src={logo} alt="" />
+              <footer className='footer text-center'>
+                <div className='contaier'>
+                  <img className='img-fluid' src={logo} alt='' />
                   <h4>CREATE YOUR MICROSITE</h4>
                 </div>
               </footer>
